@@ -1,0 +1,50 @@
+mysql -u[username] -p[password]
+Login to MySQL
+
+CREATE USER [username]@[host] IDENTIFIED BY [password];
+Create user
+
+SELECT current_user;
+Show current user logged into MySQL.
+
+SELECT user, host FROM mysql.user;
+Show all users and hosts.
+
+GRANT [privileges] ON [database_name].[table_name] TO [username]@[host] WITH GRANT OPTION;
+Grant privileges to users. WITH GRANT OPTION is optional. Allows them to grant privileges.
+
+DROP USER [username]@[host];
+Delete user.
+
+Data Definition Language: CREATE, DROP
+Data Control Language: GRANT
+Data Query Language: INSERT, UPDATE, DELETE
+Data Manipulation Language: SELECT
+
+CREATE DATABASE [database_name];
+CREATE DATABASE IF NOT EXISTS [database_name];
+
+SHOW DATABASES;
+
+USE [database_name];
+Switch to database.
+
+SELECT database();
+Show current database.
+
+SHOW CREATE DATABASE [database_name];
+Inspect a database.
+
+DROP DATABASE [database_name];
+DROP DATABASE IF EXISTS [database_name];
+Delete database;
+
+
+
+
+
+
+
+
+
+

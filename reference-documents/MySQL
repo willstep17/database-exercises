@@ -1,0 +1,38 @@
+mysql --version
+Check version
+
+mysql.server status
+Check status of MySQL
+
+mysql.server start
+Start MySQL
+
+mysql.server stop
+Stop MySQL
+
+mysql -uname (root) -ppassword (codeup)
+Login to MySQL
+
+SELECT current_user;
+See Current User in MySQL
+
+show databases;
+List MySQL Databases
+
+exit or quit;
+Leave MySQL
+
+SELECT user, host FROM mysql.user;
+List Users
+
+CREATE USER 'billy'@'localhost' IDENTIFIED BY 'billysSecretPass123';
+Create New User
+
+GRANT ALL ON *.* TO 'billy'@'localhost';
+Grants access to all tables and databases to user.
+
+GRANT SELECT ON *.* TO 'jean'@'localhost';
+Grant read only access on all tables and databases to user.
+
+DROP USER 'billy'@'localhost';
+Remove user from database.
