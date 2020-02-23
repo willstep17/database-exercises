@@ -35,3 +35,7 @@ INSERT INTO users (name, email, role_id) VALUES
 ('Will', 'willstep@gmail.com', 1),
 ('Trant', 'codeman@gmail.com', 3),
 ('Daniel', 'java@java', 2);
+
+SELECT users.name AS user_name, roles.name AS role_name
+FROM users
+JOIN roles ON users.role_id = roles.id;
