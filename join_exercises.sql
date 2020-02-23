@@ -45,3 +45,8 @@ JOIN roles ON users.role_id = roles.id;
 SELECT users.name AS user_name, roles.name AS role_name
 FROM users
 LEFT JOIN roles ON users.role_id = roles.id;
+
+/* All RIGHT JOINS can be rewritten as LEFT JOINS */
+SELECT users.name AS user_name, roles.name AS role_name
+FROM roles
+LEFT JOIN users ON users.role_id = roles.id;
