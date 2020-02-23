@@ -23,8 +23,15 @@
 -- WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
 
 USE join_test_db;
-INSERT INTO users (name, email, role_id)
-VALUES ('Michael Jackson', 'jackson@gmail.com', NULL),
+TRUNCATE users;
+
+INSERT INTO users (name, email, role_id) VALUES
+('Michael Jackson', 'jackson@gmail.com', NULL),
 ('Shelby', 'seashell.com', 2),
 ('Chris', 'chris@gmail.com', 2),
 ('Noland', 'lando@gmail.com', 2);
+
+INSERT INTO users (name, email, role_id) VALUES
+('Will', 'willstep@gmail.com', 1),
+('Trant', 'codeman@gmail.com', 3),
+('Daniel', 'java@java', 2);
