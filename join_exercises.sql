@@ -22,26 +22,68 @@
 --               ON d.dept_no = de.dept_no
 -- WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
 
-USE join_test_db;
-TRUNCATE users;
+USE employees;
 
-INSERT INTO users (name, email, role_id) VALUES
-('Michael Jackson', 'jackson@gmail.com', NULL),
-('Shelby', 'seashell.com', 2),
-('Chris', 'chris@gmail.com', 2),
-('Noland', 'lando@gmail.com', 2);
+SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager', e.emp_no
+FROM departments AS d
+JOIN dept_manager AS dm
+ON dm.dept_no = d.dept_no
+JOIN employees AS e
+ON e.emp_no = dm.emp_no
+WHERE dm.to_date = '9999-01-01'
+ORDER BY d.dept_name;
 
-INSERT INTO users (name, email, role_id) VALUES
-('Will', 'willstep@gmail.com', 1),
-('Trant', 'codeman@gmail.com', 3),
-('Daniel', 'java@java', 2);
+SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager', e.emp_no
+FROM departments AS d
+         JOIN dept_manager AS dm
+              ON dm.dept_no = d.dept_no
+         JOIN employees AS e
+              ON e.emp_no = dm.emp_no
+WHERE dm.to_date = '9999-01-01'
+ORDER BY d.dept_name;
+
+SELECT * FROM employees WHERE emp_no = 110039;
 
 /* Joins only rows that have values in the mentioned keys */
-SELECT users.name AS user_name, roles.name AS role_name
-FROM users
-JOIN roles ON users.role_id = roles.id;
+SELECT departments.dept_name AS dept_name, dept_manager.dept_no AS dept_no
+FROM departments
+JOIN dept_manager ON departments.dept_no = dept_manager.dept_no;
 
-/* Retrieves ALL records of left table (users) */
-SELECT users.name AS user_name, roles.name AS role_name
-FROM users
-LEFT JOIN roles ON users.role_id = roles.id;
+SELECT employees.emp_no AS emp_no, employees.first_name, dept_manager.dept_no AS dept_no
+FROM employees
+JOIN dept_manager ON employees.emp_no = dept_manager.emp_no;
+
+# USE join_test_db;
+# TRUNCATE users;
+#
+# INSERT INTO users (name, email, role_id) VALUES
+# ('Michael Jackson', 'jackson@gmail.com', NULL),
+# ('Shelby', 'seashell.com', 2),
+# ('Chris', 'chris@gmail.com', 2),
+# ('Noland', 'lando@gmail.com', 2);
+#
+# INSERT INTO users (name, email, role_id) VALUES
+# ('Will', 'willstep@gmail.com', 1),
+# ('Trant', 'codeman@gmail.com', 3),
+# ('Daniel', 'java@java', 2);
+#
+# /* Joins only rows that have values in the mentioned keys */
+# SELECT users.name AS user_name, roles.name AS role_name
+# FROM users
+# JOIN roles ON users.role_id = roles.id;
+#
+# /* Retrieves ALL records of left table (users) */
+# SELECT users.name AS user_name, roles.name AS role_name
+# FROM users
+# LEFT JOIN roles ON users.role_id = roles.id;
+#
+# /* All RIGHT JOINS can be rewritten as LEFT JOINS */
+# SELECT users.name AS user_name, roles.name AS role_name
+# FROM roles
+# LEFT JOIN users ON users.role_id = roles.id;
+#
+# SELECT roles.name AS role_name, COUNT(users.name) AS users_per_role
+# FROM users
+# LEFT JOIN roles ON users.role_id = roles.id
+# GROUP BY roles.name;
+
