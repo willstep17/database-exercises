@@ -36,6 +36,12 @@ INSERT INTO users (name, email, role_id) VALUES
 ('Trant', 'codeman@gmail.com', 3),
 ('Daniel', 'java@java', 2);
 
+/* Joins only rows that have values in the mentioned keys */
 SELECT users.name AS user_name, roles.name AS role_name
 FROM users
 JOIN roles ON users.role_id = roles.id;
+
+/* Retrieves ALL records of left table (users) */
+SELECT users.name AS user_name, roles.name AS role_name
+FROM users
+LEFT JOIN roles ON users.role_id = roles.id;
