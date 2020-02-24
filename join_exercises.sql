@@ -43,8 +43,8 @@ WHERE dm.to_date = '9999-01-01' AND e.gender = 'F'
 ORDER BY d.dept_name;
 
 
-
-SELECT * FROM employees WHERE emp_no = 110039;
+#
+# SELECT * FROM employees WHERE emp_no = 110039;
 
 /* Joins only rows that have values in the mentioned keys */
 SELECT departments.dept_name AS dept_name, dept_manager.dept_no AS dept_no
