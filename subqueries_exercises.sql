@@ -45,3 +45,11 @@ WHERE s.salary IN (
     SELECT MAX(salary) FROM salaries
 );
 
+/* Find the first and last name of the employee with the highest salary */
+SELECT CONCAT(first_name, ' ', last_name) AS 'Highest Paid Employee', salary AS 'Salary', from_date AS 'Hired On'
+FROM employees AS e
+JOIN salaries s on e.emp_no = s.emp_no
+WHERE s.salary IN (
+    SELECT MAX(salary) FROM salaries
+);
+
