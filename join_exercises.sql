@@ -81,17 +81,30 @@ ON d.dept_no = dm.dept_no
 WHERE dm.to_date = '9999-01-01'
 ORDER BY 'Manager Name';
 
-JOIN departments AS d
-ON d.em
+/* Find the names of all current employees, their department name, and their current manager's name. */
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee Name',
+s.salary AS 'Salary',
+d.dept_name AS 'Department Name',
+CONCAT(m.first_name, ' ', m.last_name) AS 'Manager Name'
+FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN salaries s ON e.emp_no = s.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+JOIN dept_manager dm ON de.dept_no = dm.dept_no
+JOIN employees m ON dm.emp_no = m.emp_no
+WHERE s.to_date = '9999-01-01'
+AND de.to_date = '9999-01-01'
+AND dm.to_date = '9999-01-01'
+ORDER BY d.dept_name;
 
-/* Joins only rows that have values in the mentioned keys */
-SELECT departments.dept_name AS dept_name, dept_manager.dept_no AS dept_no
-FROM departments
-JOIN dept_manager ON departments.dept_no = dept_manager.dept_no;
-
-SELECT employees.emp_no AS emp_no, employees.first_name, dept_manager.dept_no AS dept_no
-FROM employees
-JOIN dept_manager ON employees.emp_no = dept_manager.emp_no;
+# /* Joins only rows that have values in the mentioned keys */
+# SELECT departments.dept_name AS dept_name, dept_manager.dept_no AS dept_no
+# FROM departments
+# JOIN dept_manager ON departments.dept_no = dept_manager.dept_no;
+#
+# SELECT employees.emp_no AS emp_no, employees.first_name, dept_manager.dept_no AS dept_no
+# FROM employees
+# JOIN dept_manager ON employees.emp_no = dept_manager.emp_no;
 
 # USE join_test_db;
 # TRUNCATE users;
