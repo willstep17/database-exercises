@@ -22,6 +22,9 @@ List MySQL Databases
 USE database_name;
 Select a database for use
 
+DESCRIBE table_name;
+Show structure of table;
+
 exit or quit;
 Leave MySQL
 
