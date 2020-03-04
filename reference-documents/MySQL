@@ -16,8 +16,11 @@ Login to MySQL
 SELECT current_user;
 See Current User in MySQL
 
-show databases;
+SHOW DATABASES;
 List MySQL Databases
+
+USE database_name;
+Select a database for use
 
 exit or quit;
 Leave MySQL
