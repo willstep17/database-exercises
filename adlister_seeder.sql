@@ -1,14 +1,14 @@
 USE adlister;
 
-INSERT INTO users(email, password) VALUES
-    ('badpassword@gmail.com', '1234512345'),
-    ('nicholasCage@gmail.com', 'aaaaaaaab'),
-    ('nolando@gmail.com', 'iknowpython'),
-    ('Chris@freemason.com', 'password'),
-    ('LaryDavid@seinfeld.com', 'curbyourenthusiasm'),
-    ('SaulGOODman@lawyrup.com', 'bettercallsaul');
+INSERT INTO users(username, email, password) VALUES
+    ('bad', 'badpassword@gmail.com', '1234512345'),
+    ('nickRage', 'nicholasCage@gmail.com', 'aaaaaaaab'),
+    ('noland', 'nolando@gmail.com', 'iknowpython'),
+    ('chris', 'Chris@freemason.com', 'password'),
+    ('lary', 'LaryDavid@seinfeld.com', 'curbyourenthusiasm'),
+    ('saul', 'SaulGOODman@lawyrup.com', 'bettercallsaul');
 
-INSERT INTO ads(title, content, user_id) VALUES
+INSERT INTO ads(title, description, user_id) VALUES
     ('Title 1', 'Content 1', 2),
     ('Title 2', 'Content 2', 4),
     ('Title 3', 'Content 3', 4),
