@@ -1,7 +1,9 @@
-USE adlister;
+CREATE DATABASE adlister_db;
+USE adlister_db;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255),
     email VARCHAR(320),
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
@@ -11,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS ads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     title VARCHAR(100),
-    content TEXT NOT NULL,
+    description TEXT NOT NULL,
     user_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
